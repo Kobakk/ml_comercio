@@ -18,4 +18,8 @@ El caso es los puntos en blanco, de la programación. La cantidad de librerias y
 - No podemos crear una clase abstracta de 0 y trabajar con clases si no conocemos, si no lo hemos practicado  antes. 
 - Utilizar y probar sus librerias. 
 
+### Lógica del examen 
+
+1. Importación de los datos
+2. Limpieza de los datos 
 
