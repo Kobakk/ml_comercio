@@ -21,5 +21,8 @@ El caso es los puntos en blanco, de la programación. La cantidad de librerias y
 ### Lógica del examen 
 
 1. Importación de los datos
-2. Limpieza de los datos 
+2. Limpieza de los datos
+3. Visualización de los datos
+4. Aplicar modelos 
+5. Valorar resultados
 
