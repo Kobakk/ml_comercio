@@ -1,2 +1,4 @@
 .venv
 .idea/
+anotaciones/.env
+datasets
