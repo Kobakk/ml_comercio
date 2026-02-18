@@ -1,4 +1,6 @@
-## funciones group_by 
+# La agrupación
+
+Objetivo: Rellenar valores vacios con nulos. 
 
 ```python
 df['horsepower'] = df['horsepower'].fillna(df.groupby('engine_size')['horsepower'].transform('mean'))
@@ -6,14 +8,14 @@ df['horsepower'] = df['horsepower'].fillna(df.groupby('engine_size')['horsepower
 df['horsepower'] = df['horsepower'].fillna(df['horsepower'].mean())
 ```
 
-### group by 
+## `group_by`
 
-agrupamos filas de una misma tabla que comparten valor 
+Agrupamos filas de una misma tabla que comparten valor.  
 
 ```python 
 df.groupby('engine_size')['horsepower'].mean()
 ```
-partimos de una tabla desordenada
+1. Partimos de una tabla desordenada:
 
 | Motor (Llave) | Potencia (Valor) |
 | :--- | :---: |
@@ -22,7 +24,7 @@ partimos de una tabla desordenada
 |2.0 | 210 |
 |1.6 | 110 |
 
-1. Agrupamos en valores similares de la col a seleccionar (motor )
+2. Agrupamos en valores similares de la col a seleccionar (motor )
 | Motor (Llave) | Potencia (Valor) |
 | :--- | :---: |
 |2.0 |200 |
@@ -30,7 +32,7 @@ partimos de una tabla desordenada
 |1.6 | 100 |
 |1.6 | 110 |
 
-¿O ocurre lo siguiente? Los convierte en cadenas: 
+- ¿O ocurre lo siguiente? Los convierte en cadenas: 
 
 ```python
 df.groupby('engine_size')['horsepower'].mean()
@@ -40,8 +42,19 @@ df.groupby('engine_size')['horsepower'].mean()
 |2.0 |200 , 210 |
 |1.6 | 100 , 110 |
 
-La verdad es que no solo los agrupa, ordena y apartir de ahi 
+La verdad es que no solo los agrupa, ordena y apartir de ahí, usamos un código como `mean()` o `count()`: 
 
+- Con el mean: 
+| Motor (Llave) | Potencia (Valor) |
+| :--- | :---: |
+|2.0 |205 |
+|1.6 | 105 |
+
+- Con el count():
+| Motor (Llave) | Potencia (Valor) |
+| :--- | :---: |
+|2.0 |2 |
+|1.6 | 1 |  
 
 ### ver las cardinalidades de las columnas 
 
