@@ -62,4 +62,4 @@ Todo el trabajo de núnermos sobre relaciones y cardinalidad entre columnas, se 
 
 - Para detectar columnas no informativas: se buscan aquellas **que no aportan variabilidad** o que estan tan vacías que no permiten extraer patrones.
 1. Columnas constante (varianza zero ):   `unique() == 1` una columna tiene varianza 0, no puede explicar cambios en otras variables.
-2. Identificadores únicos ( alta cardinalidad ): 
+2. Identificadores únicos ( alta cardinalidad ):
