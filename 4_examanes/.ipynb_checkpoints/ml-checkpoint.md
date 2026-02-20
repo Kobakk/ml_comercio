@@ -37,4 +37,48 @@ preprocessor = ColumnTransformer(
 3. En el objeto pipeline especificamos que vamos a realizar:
     - numericos: rellenar con la media.
     - categóricos: convertirlo a valores binarios.
-4. La columna de transformación 
+4. La columna de transformación
+
+# Aplicar modelo 
+
+Modelo linear para la predicción de precios de un vehículo a partir de sus características.
+```python
+from sklearn.linear_model import LinearRegression
+
+model_linear = Pipeline(steps=[
+    ('preprocessor', preprocessor),
+    ('regressor', LinearRegression())
+])
+
+model_linear.fit(X_train, y_train)
+
+y_pred = model_linear.predict(X_test)
+```
+Visualizamos los datos de diferencia en una tabla: 
+
+```python
+comparativa = pd.DataFrame({'Real': y_test, 'Predicción': y_pred.round(2)})
+comparativa['Error (€)'] = (comparativa['Real'] - comparativa['Predicción']).abs()
+print(comparativa.head(10))
+```
+
+
+# La tuberia es clave para el procesamiento de datos:
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+
+modelo_pipeline = Pipeline(steps=[
+    ('scaler', StandardScaler()),      # Paso 1: escalado
+    ('modelo', RandomForestClassifier())  # Paso 2: modelo
+])
+
+modelo_pipeline.fit(X_train, y_train)
+predicciones = modelo_pipeline.predict(X_test)
+```
+
+Luego aplicamos el modelo 
+
+datos -> preprocesamiento(pipeline) -> selección modelo -> evaluación 
