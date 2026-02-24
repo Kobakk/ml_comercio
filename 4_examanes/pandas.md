@@ -25,3 +25,25 @@ df.mode()[0] # moda columna
 df.groupby("col") # agrupar por columna
  
 ```
+
+## consultas pandas 
+
+```python
+marcas_unicas_ordenadas_abc = sorted(df['brand'].unique())
+
+[df[df['brand'] == marca]['price'] for marca in marcas]
+
+datos_por_marca = [grupo['price'] for nombre, grupo in df.groupby('brand')]
+
+
+
+precios_x_marca = [df['price'] for nombre, grupo in df.groupby('brand')]
+
+for nombre, grupo in df.groupby('brand'):
+    precios_marca = grupo['price']
+
+
+# join o groupby de marcas por precio medio 
+df['brand'].groupby('price').mean()
+df['brand'].groupby('price').list()
+```
